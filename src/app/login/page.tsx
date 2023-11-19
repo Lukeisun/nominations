@@ -5,8 +5,10 @@ export default async function Page() {
   const session = await getServerSession();
   console.log(session);
   return (
-    <SessionProvider session={session}>
-      <Login />
-    </SessionProvider>
+    <div className="bg-thumb bg-purple1 bg-cover bg-top h-screen">
+      <SessionProvider session={session}>
+        <Login />
+      </SessionProvider>
+    </div>
   );
 }

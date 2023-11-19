@@ -5,5 +5,9 @@ export default async function Home() {
   if (!session || !session.user) {
     redirect("/login");
   }
-  return <h1> Home </h1>;
+  return (
+    <div className="bg-thumb bg-purple1 bg-cover bg-top h-screen">
+      <h1> Home </h1>
+    </div>
+  );
 }
