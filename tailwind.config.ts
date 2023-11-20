@@ -21,6 +21,9 @@ const config: Config = {
         navy: "#0E212E",
         black: "#000000",
       },
+      fontFamily: {
+        mono: ["var(--font-rubik)"],
+      },
     },
   },
   plugins: [],

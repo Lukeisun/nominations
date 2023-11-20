@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
-const inter = Inter({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 import SessionProvider from "./components/SessionProvider";
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={rubik.className}>
         <SessionProvider session={session}>{children}</SessionProvider>
       </body>
     </html>
