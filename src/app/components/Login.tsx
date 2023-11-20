@@ -2,6 +2,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import placeholder_pfp from "../../../public/placeholder_pfp.png";
 const handleSignOut = () => signOut();
 const handleSignIn = () => signIn("twitch", { callbackUrl: "/" });
 export default function Component() {
@@ -12,7 +13,7 @@ export default function Component() {
         {session ? (
           <>
             <Image
-              src={session.user?.image}
+              src={session.user?.image ?? placeholder_pfp}
               width={150}
               height={150}
               alt="twitch user profile picture"
@@ -27,9 +28,19 @@ export default function Component() {
             </Link>
           </>
         ) : (
-          <button className="btn" type="button" onClick={handleSignIn}>
-            SIGNOUT
-          </button>
+          <>
+            <Image
+              src={placeholder_pfp}
+              width={150}
+              height={150}
+              alt="twitch user profile picture"
+              className="rounded-full"
+            />
+            <p className="pb-8 font-bold">chatter</p>
+            <button className="btn" type="button" onClick={handleSignIn}>
+              LOGIN
+            </button>
+          </>
         )}
       </div>
     </div>
