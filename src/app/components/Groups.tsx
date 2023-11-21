@@ -4,15 +4,14 @@ import CategoryComponent from "./CategoryComponent";
 import { GroupProps, Group, CategoryProps } from "./types";
 export default function Component(props: GroupProps) {
   const groups: Group[] = props.groups;
-  const [selectedCategory, setCategory] = useState(null);
+  const [selectedCategory, setCategory] = useState<CategoryProps | null>(null);
   const handleButtonClick = (categoryProp: CategoryProps) => {
-    console.log(categoryProp);
     setCategory(categoryProp);
   };
   return (
     <div className="flex bg-thumb bg-purple1 bg-cover bg-top h-screen">
       <div className="flex w-2/3 flex-row justify-center m-auto gap-x-24 max-h-[36rem]">
-        <div className="card gap-5">
+        <div className="card gap-5 w-1/4">
           <h1 className="font-bold text-4xl"> Nominations </h1>
           <div className="flex flex-col w-full gap-y-5 overflow-auto">
             {groups.map((group: Group) => (

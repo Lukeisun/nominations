@@ -16,7 +16,7 @@ export type Category = {
 };
 export type CategoryAttributes = {
   title: string;
-  description: string;
+  description?: string;
   type: string;
   createdAt: Date;
   updatedAt: Date;

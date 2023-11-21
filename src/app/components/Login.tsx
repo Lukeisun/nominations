@@ -2,14 +2,14 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import placeholder_pfp from "../../../public/placeholder_pfp.png";
+import placeholder_pfp from "@/../public/placeholder_pfp.png";
 const handleSignOut = () => signOut();
 const handleSignIn = () => signIn("twitch", { callbackUrl: "/" });
 export default function Component() {
   const { data: session } = useSession();
   return (
     <div className="flex flex-col pt-[15%] items-center">
-      <div className="card gap-2">
+      <div className="card justify-center gap-2">
         {session ? (
           <>
             <Image
@@ -20,10 +20,10 @@ export default function Component() {
               className="rounded-full"
             />
             <div className="pb-8 font-bold">{session.user?.name}</div>
-            <button className="btn" type="button" onClick={handleSignOut}>
+            <button className="btn-login" type="button" onClick={handleSignOut}>
               LOGOUT
             </button>
-            <Link className="btn" href="/">
+            <Link className="btn-login" href="/">
               HOME
             </Link>
           </>

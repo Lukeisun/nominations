@@ -29,5 +29,5 @@ body {
   @apply bg-white text-black rounded-md p-1 shrink-0 min-w-full text-center text-xl font-bold hover:bg-purple2;
 }
 .card {
-  @apply w-1/4 font-mono flex flex-col justify-center items-center pt-10 pb-12 px-11 rounded-3xl bg-navy;
+  @apply font-mono flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy;
 }
