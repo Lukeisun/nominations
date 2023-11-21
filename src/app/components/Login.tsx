@@ -9,7 +9,7 @@ export default function Component() {
   const { data: session } = useSession();
   return (
     <div className="flex flex-col pt-[15%] items-center">
-      <div className="font-mono flex flex-col justify-center items-center pt-10 pb-12 px-11 rounded-3xl gap-2 bg-navy">
+      <div className="card gap-2">
         {session ? (
           <>
             <Image
@@ -19,7 +19,7 @@ export default function Component() {
               alt="twitch user profile picture"
               className="rounded-full"
             />
-            <p className="pb-8 font-bold">{session.user?.name}</p>
+            <div className="pb-8 font-bold">{session.user?.name}</div>
             <button className="btn" type="button" onClick={handleSignOut}>
               LOGOUT
             </button>
@@ -37,7 +37,11 @@ export default function Component() {
               className="rounded-full"
             />
             <p className="pb-8 font-bold">chatter</p>
-            <button className="btn" type="button" onClick={handleSignIn}>
+            <button
+              className="font-mono flex flex-col justify-center items-center pt-10 pb-12 px-11 rounded-3xl gap-2 bg-navy"
+              type="button"
+              onClick={handleSignIn}
+            >
               LOGIN
             </button>
           </>
