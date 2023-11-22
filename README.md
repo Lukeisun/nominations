@@ -1,3 +1,5 @@
+# Atrioc 'ACLU' NextJs Nomination Project
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -16,6 +18,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to run
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Here is my .env file, API_URL and API_TOKEN provided by ACLU. Can refer to the `src/app/components/types.ts` to mock if you're curious.
+
+```
+TWITCH_CLIENT_ID=
+TWITCH_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+API_URL=
+API_TOKEN=
+DISCORD_WEBHOOK=
+```
+
+To initialize the database `cd` to the `scripts/` folder and run `node initDB.mjs`.
+
+This will place the .db file in your root directory.
