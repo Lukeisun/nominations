@@ -44,6 +44,7 @@ export default function Component(props: GroupProps) {
         </div>
         {selectedCategory && (
           <CategoryComponent
+            key={Date.now()}
             category={selectedCategory.category}
             color={selectedCategory.color}
           />

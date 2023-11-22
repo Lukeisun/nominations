@@ -1,7 +1,7 @@
 "use client";
-import { useFormStatus } from "react-dom";
+import { useFormStatus, useFormState } from "react-dom";
 import { CategoryProps } from "./types";
-import SubmitAction from "../actions/SubmitAction";
+import submitNomination from "../actions/SubmitNomination";
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
@@ -14,7 +14,11 @@ function SubmitButton() {
     </button>
   );
 }
+const initialState = {
+  message: "",
+};
 export default function Component(props: CategoryProps) {
+  const [state, formAction] = useFormState(submitNomination, initialState);
   const category = props.category;
   const color = `#${props.color}`;
   return (
@@ -27,7 +31,7 @@ export default function Component(props: CategoryProps) {
         <p className="text-xl font-normal">{category.attributes.description}</p>
       </div>
       <form
-        action={SubmitAction}
+        action={formAction}
         className="flex flex-col justify-center gap-5 text-white w-full"
       >
         <input
@@ -42,6 +46,21 @@ export default function Component(props: CategoryProps) {
           name="justification"
           placeholder="Make your case..."
         />
+        <input
+          type="text"
+          name="id"
+          className="hidden"
+          defaultValue={`${category.id}`}
+        />
+        <input
+          type="text"
+          name="title"
+          className="hidden"
+          defaultValue={`${category.attributes.title}`}
+        />
+        <p aria-live="polite" className="self-center">
+          {state?.message}
+        </p>
         <SubmitButton />
       </form>
     </div>
