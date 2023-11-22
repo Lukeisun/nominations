@@ -4,7 +4,7 @@ import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 let db: Database | null = null;
 export default async function submitNomination(
-  prevState: any,
+  prevState: { message: string },
   formData: FormData,
 ) {
   const session = await getServerSession();
@@ -58,5 +58,5 @@ export default async function submitNomination(
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(data),
   });
-  return;
+  return { message: "" };
 }
