@@ -23,9 +23,7 @@ export default async function submitNomination(
     const nominationIdArray: number[] = JSON.parse(
       submissions[0].nominationIdArray,
     );
-    console.log(nominationIdArray);
     if (nominationIdArray.includes(+id)) {
-      console.log("hello");
       return { message: "Already submitted vote" };
     }
     nominationIdArray.push(+id);
