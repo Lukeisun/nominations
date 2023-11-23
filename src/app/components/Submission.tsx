@@ -2,6 +2,7 @@
 import { useFormStatus, useFormState } from "react-dom";
 import { CategoryProps } from "./types";
 import submitNomination from "../actions/SubmitNomination";
+import getSubmittedCategories from "../actions/SubmittedCategories";
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
@@ -20,10 +21,12 @@ const initialState = {
 export default function Component(props: CategoryProps) {
   const [state, formAction] = useFormState(submitNomination, initialState);
   const category = props.category;
+  const setCategory = props.setCategory;
+  const setCategoryIds = props.setCategoryIds;
   const color = `#${props.color}`;
   return (
     <div
-      className="card-category overflow-auto justify-start"
+      className="flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy gap-5 overflow-auto justify-start w-1/3"
       style={{ borderTop: `1.5rem solid ${color}` }}
     >
       <div className="flex flex-col text-4xl font-bold gap-5">
@@ -31,7 +34,11 @@ export default function Component(props: CategoryProps) {
         <p className="text-xl font-normal">{category.attributes.description}</p>
       </div>
       <form
-        action={formAction}
+        action={async (formData) => {
+          formAction(formData);
+          setCategoryIds(await getSubmittedCategories());
+          setCategory(null);
+        }}
         className="flex flex-col justify-center gap-5 text-white w-full"
       >
         <input
