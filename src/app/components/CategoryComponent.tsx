@@ -23,7 +23,7 @@ export default function Component(props: CategoryProps) {
   const color = `#${props.color}`;
   return (
     <div
-      className="card gap-5 overflow-auto justify-start w-1/4"
+      className="card-category overflow-auto justify-start"
       style={{ borderTop: `1.5rem solid ${color}` }}
     >
       <div className="flex flex-col text-4xl font-bold gap-5">

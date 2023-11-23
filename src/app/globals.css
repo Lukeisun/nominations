@@ -31,3 +31,6 @@ body {
 .card {
   @apply font-mono flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy;
 }
+.card-category {
+  @apply font-mono flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy gap-5 lg:w-[30%];
+}

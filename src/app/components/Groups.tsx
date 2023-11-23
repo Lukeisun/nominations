@@ -11,7 +11,12 @@ export default function Component(props: GroupProps) {
   return (
     <div className="flex bg-thumb bg-purple1 bg-cover bg-top h-screen">
       <div className="flex w-2/3 flex-row justify-center m-auto gap-x-24 max-h-[36rem]">
-        <div className="card gap-5 w-1/4">
+        <div
+          className="card-category"
+          style={{
+            display: selectedCategory ? "hidden" : "flex",
+          }}
+        >
           <h1 className="font-bold text-4xl"> Nominations </h1>
           <div className="flex flex-col w-full gap-y-5 overflow-auto">
             {groups.map((group: Group) => (
@@ -24,6 +29,10 @@ export default function Component(props: GroupProps) {
                     type="button"
                     key={category.id}
                     className="flex flex-row p-2 gap-x-2 hover:bg-gray-500 rounded-md"
+                    style={{
+                      backgroundColor:
+                        selectedCategory?.category === category ? "#000" : "",
+                    }}
                     onClick={() =>
                       handleButtonClick({
                         category: category,
@@ -33,7 +42,9 @@ export default function Component(props: GroupProps) {
                   >
                     <div
                       className="rounded-full w-6 h-6"
-                      style={{ backgroundColor: `#${group.attributes.color}` }}
+                      style={{
+                        backgroundColor: `#${group.attributes.color}`,
+                      }}
                     />
                     <span>{category.attributes.title}</span>
                   </button>

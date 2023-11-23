@@ -37,11 +37,7 @@ export default function Component() {
               className="rounded-full"
             />
             <p className="pb-8 font-bold">chatter</p>
-            <button
-              className="font-mono flex flex-col justify-center items-center pt-10 pb-12 px-11 rounded-3xl gap-2 bg-navy"
-              type="button"
-              onClick={handleSignIn}
-            >
+            <button className="btn-login" type="button" onClick={handleSignIn}>
               LOGIN
             </button>
           </>

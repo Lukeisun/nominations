@@ -11,4 +11,4 @@ const db = new sqlite3.Database(
 db.run(`CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,
   email TEXT,
-  nominationIdArray TEXT)`);
+  categoryId INTEGER)`);

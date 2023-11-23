@@ -17,25 +17,14 @@ export default async function submitNomination(
     });
   }
   const submissions = await db.all(
-    `SELECT * FROM users WHERE email="${email}"`,
+    `SELECT * FROM users WHERE email="${email}" AND categoryId=${id}`,
   );
   if (submissions.length > 0) {
-    const nominationIdArray: number[] = JSON.parse(
-      submissions[0].nominationIdArray,
-    );
-    if (nominationIdArray.includes(+id)) {
-      return { message: "Already submitted vote" };
-    }
-    nominationIdArray.push(+id);
-    db.run(
-      `UPDATE users SET nominationIdArray="${JSON.stringify(
-        nominationIdArray,
-      )}" WHERE email="${email}"`,
-    );
+    return { message: "Already submitted vote" };
   } else {
-    db.run("INSERT INTO users (email, nominationIdArray) VALUES (?, ?)", [
+    db.run("INSERT INTO users (email, categoryId) VALUES (?, ?)", [
       session?.user?.email,
-      `[${id}]`,
+      id,
     ]);
   }
   const discordFormattedMessage = `\`\`\`json\n${JSON.stringify(
