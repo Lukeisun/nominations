@@ -26,7 +26,7 @@ export default function Component(props: CategoryProps) {
   const color = `#${props.color}`;
   return (
     <div
-      className="flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy gap-5 overflow-auto justify-start w-1/3"
+      className="flex flex-col items-center pt-10 pb-12 px-11 rounded-3xl bg-navy gap-5 overflow-auto justify-start lg:w-1/3 md:w-full"
       style={{ borderTop: `1.5rem solid ${color}` }}
     >
       <div className="flex flex-col text-4xl font-bold gap-5">

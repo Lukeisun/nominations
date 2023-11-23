@@ -25,8 +25,12 @@ export type CategoryAttributes = {
 export interface CategoryProps {
   category: Category;
   color: string;
-  setCategory: React.Dispatch<React.SetStateAction<CategoryProps | null>>;
+  setCategory: React.Dispatch<React.SetStateAction<CategoryState | null>>;
   setCategoryIds: React.Dispatch<React.SetStateAction<number[]>>;
+}
+export interface CategoryState {
+  category: Category;
+  color: string;
 }
 export interface WrapperProps {
   groups: Group[];
@@ -34,7 +38,7 @@ export interface WrapperProps {
 }
 export interface GroupProps {
   groups: Group[];
-  selectedCategory: CategoryProps | null;
-  setCategory: React.Dispatch<React.SetStateAction<CategoryProps | null>>;
+  selectedCategory: CategoryState | null;
+  setCategory: React.Dispatch<React.SetStateAction<CategoryState | null>>;
   categoryIds: number[];
 }
