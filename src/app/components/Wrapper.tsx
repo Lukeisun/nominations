@@ -10,7 +10,6 @@ export default function Component(props: WrapperProps) {
   return (
     <div className="flex bg-thumb bg-purple1 bg-cover bg-top h-screen">
       <div className="flex flex-row justify-center m-auto gap-x-24 max-h-[36rem] sm:w-3/4 md:w-2/3 ">
-        {/* groups */}
         <Groups
           groups={groups}
           categoryIds={categoryIds}
